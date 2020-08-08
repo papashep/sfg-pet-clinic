@@ -1,16 +1,124 @@
+HELP.md
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+#####################
 # Compiled class file
+######################
 *.class
 
-# Log file
-*.log
+######################
+# Project Specific
+######################
+/build/www/**
+/src/test/javascript/coverage/
+/src/test/javascript/PhantomJS*/
 
+######################
+# Node
+######################
+/node/
+node_tmp/
+node_modules/
+npm-debug.log.*
+
+######################
+# SASS
+######################
+.sass-cache/
+
+######################
+# Eclipse
+######################
+*.pydevproject
+.project
+.metadata
+tmp/
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.factorypath
+/src/main/resources/rebel.xml
+
+######################
+# External tool builders
+######################
+.externalToolBuilders/**
+
+######################
+# Locally stored "Eclipse launch configurations"
+*.launch
+######################
+
+######################
 # BlueJ files
+######################
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+######################
+# CDT-specific
+######################
+.cproject
 
-# Package Files #
+######################
+# STS
+######################
+.apt_generated
+.settings
+.springBeans
+.sts4-cache
+
+######################
+# IntelliJ IDEA
+######################
+.idea/
+*.iws
+*.iml
+*.ipr
+*.ids
+*.orig
+.idea
+
+######################
+# NetBeans
+######################
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+######################
+# Visual Studio Code
+.vscode/
+######################
+
+######################
+# Maven
+######################
+/log/
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+######################
+# Gradle
+######################
+.gradle/
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+######################
+# Package Files
+######################
 *.jar
 *.war
 *.nar
@@ -18,6 +126,61 @@
 *.zip
 *.tar.gz
 *.rar
+*.db
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+######################
+# Windows image file cache
+######################
+Thumbs.db
+
+######################
+# Windows folder config
+######################
+Desktop.ini
+
+######################
+# Logs
+######################
+*.log
+
+######################
+# Others
+######################
+*.*~
+*~
+.merge_files
+
+######################
+# ESLint
+######################
+.eslintcache
+
+######################
+# virtual machine crash logs,
+# see http://www.java.com/en/download/help/error_hotspot.xml
+######################
 hs_err_pid*
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+######################
+# Thumbnails
+######################
+._*
+
+######################
+# Files that might appear on external disk
+######################
+.Spotlight-V100
+.Trashes
+
+######################
+# Directories
+######################
+/bin/
+/deploy/
+
