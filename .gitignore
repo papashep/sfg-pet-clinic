@@ -108,6 +108,7 @@ build/
 /log/
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+/.mvn/wrapper/MavenWrapperDownloader.java
 
 ######################
 # Gradle
@@ -184,4 +185,4 @@ hs_err_pid*
 /bin/
 /deploy/
 
-/.mvn/wrapper/MavenWrapperDownloader.java
+/HELP.md
