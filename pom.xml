@@ -47,7 +47,7 @@
 
     <scm>
         <developerConnection>
-            scm:git:git@github.com:https://github.com/papashep/sfg-di.git
+            scm:git:git@github.com:https://github.com/papashep/sfg-pet-clinic.git
         </developerConnection>
     </scm>
 
