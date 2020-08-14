@@ -44,11 +44,11 @@
             </plugin>
         </plugins>
     </build>
-
     <scm>
         <developerConnection>
-            scm:git:git@github.com:https://github.com/papashep/sfg-pet-clinic.git
+            scm:git:https://github.com/papashep/sfg-pet-clinic.git
         </developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
 </project>
