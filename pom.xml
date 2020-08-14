@@ -46,9 +46,9 @@
 
     <scm>
         <developerConnection>
-            scm:git@github.com:mvnsvn:https://github.com/papashep/sfg-pet-clinic.git
+            scm:svn:https://github.com/papashep/sfg-pet-clinic.git
         </developerConnection>
-      <tag>SNAPSHOT-0.0.3</tag>
+      <tag>SNAPSHOT-0.0.2</tag>
   </scm>
 
 </project>
