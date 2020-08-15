@@ -18,7 +18,7 @@
 
     <groupId>com.melvyn</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>sfg-pet-clinic</name>
     <description>SFG Pet Clinic Project</description>
 
@@ -48,7 +48,7 @@
         <developerConnection>
             scm:git:https://github.com/papashep/sfg-pet-clinic.git
         </developerConnection>
-        <tag>sfg-pet-clinic-0.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
 </project>
