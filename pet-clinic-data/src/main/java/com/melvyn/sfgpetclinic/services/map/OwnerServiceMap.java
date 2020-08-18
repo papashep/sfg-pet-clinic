@@ -2,12 +2,14 @@ package com.melvyn.sfgpetclinic.services.map;
 
 import com.melvyn.sfgpetclinic.model.Owner;
 import com.melvyn.sfgpetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * Created by Melvyn on 16/Aug/2020
  */
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll () {

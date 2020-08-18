@@ -4,8 +4,6 @@ import com.melvyn.sfgpetclinic.model.Owner;
 import com.melvyn.sfgpetclinic.model.Vet;
 import com.melvyn.sfgpetclinic.services.OwnerService;
 import com.melvyn.sfgpetclinic.services.VetService;
-import com.melvyn.sfgpetclinic.services.map.OwnerServiceMap;
-import com.melvyn.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -21,13 +19,12 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
-
     private final VetService vetService;
 
-
-    public DataLoader () {      // We need to generate the constructor, not using Dependency Injection.
-        ownerService = new OwnerServiceMap ();
-        vetService = new VetServiceMap ();
+    public DataLoader (OwnerService ownerService, VetService vetService) {      // We need to generate the constructor
+                                                                                // Spring will do an auto @Autowired
+        this.ownerService = ownerService;   // Auto injected into the constructor
+        this.vetService = vetService;       // Auto injected into the constructor
     }
 
     @Override
