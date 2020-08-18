@@ -1,14 +1,14 @@
 package com.melvyn.sfgpetclinic.services.map;
 
 import com.melvyn.sfgpetclinic.model.Owner;
-import com.melvyn.sfgpetclinic.services.CrudService;
+import com.melvyn.sfgpetclinic.services.OwnerService;
 
 import java.util.Set;
 
 /**
  * Created by Melvyn on 16/Aug/2020
  */
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll () {
         return super.findAll ();
@@ -32,5 +32,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById (Long id) {
         super.deleteById (id);
+    }
+
+    @Override
+    public Owner findByLastName (String lastName) {
+        return null;
     }
 }

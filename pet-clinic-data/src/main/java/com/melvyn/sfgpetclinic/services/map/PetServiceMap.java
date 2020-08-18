@@ -1,14 +1,14 @@
 package com.melvyn.sfgpetclinic.services.map;
 
 import com.melvyn.sfgpetclinic.model.Pet;
-import com.melvyn.sfgpetclinic.services.CrudService;
+import com.melvyn.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
 /**
  * Created by Melvyn on 16/Aug/2020
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll () {
