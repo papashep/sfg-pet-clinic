@@ -1,7 +1,7 @@
 package com.melvyn.sfgpetclinic.services.map;
 
 import com.melvyn.sfgpetclinic.model.Speciality;
-import com.melvyn.sfgpetclinic.services.SpecialtiesService;
+import com.melvyn.sfgpetclinic.services.SpecialtyService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by Melvyn on 24/Aug/2020
  */
 @Service
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtiesService {
+public class SpecialtyMapService extends AbstractMapService<Speciality, Long> implements SpecialtyService {
     @Override
     public Set<Speciality> findAll () {
         return super.findAll ();

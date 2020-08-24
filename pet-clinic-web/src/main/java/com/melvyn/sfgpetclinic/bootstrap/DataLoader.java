@@ -1,11 +1,9 @@
 package com.melvyn.sfgpetclinic.bootstrap;
 
-import com.melvyn.sfgpetclinic.model.Owner;
-import com.melvyn.sfgpetclinic.model.Pet;
-import com.melvyn.sfgpetclinic.model.PetType;
-import com.melvyn.sfgpetclinic.model.Vet;
+import com.melvyn.sfgpetclinic.model.*;
 import com.melvyn.sfgpetclinic.services.OwnerService;
 import com.melvyn.sfgpetclinic.services.PetTypeService;
+import com.melvyn.sfgpetclinic.services.SpecialtyService;
 import com.melvyn.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -26,18 +24,30 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final SpecialtyService specialtyService;
 
     public DataLoader (OwnerService ownerService,
                        VetService vetService,
-                       PetTypeService petTypeService) {                        // We need to generate the constructor
+                       PetTypeService petTypeService,
+                       SpecialtyService specialtyService) {                    // We need to generate the constructor
                                                                                // Spring will do an auto @Autowired
         this.ownerService = ownerService;           // Auto injected into the constructor
         this.vetService = vetService;               // Auto injected into the constructor
         this.petTypeService = petTypeService;       // Auto injected into the constructor
+        this.specialtyService = specialtyService;   // Auto injected into the constructor
     }
 
     @Override
     public void run (String... args) throws Exception {
+
+        int count = petTypeService.findAll ().size ();
+
+        if ( count == 0 ) {
+            loadData ();
+        }
+    }
+
+    private void loadData () {
 
         PetType dog = new PetType ();
         dog.setName ("Dog");
@@ -50,6 +60,22 @@ public class DataLoader implements CommandLineRunner {
         PetType tiger = new PetType ();
         tiger.setName ("Tiger");
         PetType savedTigerPetType = petTypeService.save (tiger);
+
+        System.out.println ("Created Pet Types....");
+
+        Speciality radiology = new Speciality ();
+        radiology.setDescription ("Radiology");
+        Speciality savedRadiology = specialtyService.save (radiology);
+
+        Speciality surgery = new Speciality ();
+        surgery.setDescription ("Surgery");
+        Speciality savedSurgery = specialtyService.save (surgery);
+
+        Speciality dentistry = new Speciality ();
+        dentistry.setDescription ("Dentistry");
+        Speciality savedDentistry = specialtyService.save (dentistry);
+
+        System.out.println ("Created Vet Specialities....");
 
         Owner owner1 = new Owner ();
         owner1.setFirstName ("Michael");
@@ -102,23 +128,24 @@ public class DataLoader implements CommandLineRunner {
         Vet vet1 = new Vet ();
         vet1.setFirstName ("Sam");
         vet1.setLastName ("Axe");
+        vet1.getSpecialities ().add (savedRadiology);
 
         vetService.save (vet1);
 
         Vet vet2 = new Vet ();
         vet2.setFirstName ("Jessie");
         vet2.setLastName ("Porter");
+        vet2.getSpecialities ().add (savedSurgery);
 
         vetService.save (vet2);
 
         Vet vet3 = new Vet ();
         vet3.setFirstName ("Martin");
         vet3.setLastName ("Shepherd");
+        vet3.getSpecialities ().add (savedDentistry);
 
         vetService.save (vet3);
 
         System.out.println ("Loaded Vets....");
-
-
     }
 }
