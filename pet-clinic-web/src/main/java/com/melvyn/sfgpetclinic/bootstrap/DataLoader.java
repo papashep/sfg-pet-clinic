@@ -1,6 +1,7 @@
 package com.melvyn.sfgpetclinic.bootstrap;
 
 import com.melvyn.sfgpetclinic.model.Owner;
+import com.melvyn.sfgpetclinic.model.Pet;
 import com.melvyn.sfgpetclinic.model.PetType;
 import com.melvyn.sfgpetclinic.model.Vet;
 import com.melvyn.sfgpetclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import com.melvyn.sfgpetclinic.services.PetTypeService;
 import com.melvyn.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 /**
  * Created by Melvyn on 18/Aug/2020
@@ -51,18 +54,46 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner ();
         owner1.setFirstName ("Michael");
         owner1.setLastName ("Weston");
+        owner1.setAddress ("123 Brickerel");
+        owner1.setCity ("Miami");
+        owner1.setTelephone ("123123123");
+
+        Pet mikesPet = new Pet ();
+        mikesPet.setPetType (savedDogPetType);
+        mikesPet.setOwner (owner1);
+        mikesPet.setBirthDate (LocalDate.now ());
+        mikesPet.setName ("Rosco");
+        owner1.getPets ().add(mikesPet);
 
         ownerService.save (owner1);
 
         Owner owner2 = new Owner ();
         owner2.setFirstName ("Fiona");
         owner2.setLastName ("Glenanne");
+        owner2.setAddress ("123 Brickerel");
+        owner2.setCity ("Miami");
+        owner2.setTelephone ("123123123");
+        Pet fionaCat = new Pet ();
+        fionaCat.setPetType (savedCatPetType);
+        fionaCat.setOwner (owner2);
+        fionaCat.setBirthDate (LocalDate.of (2015,4,16));
+        fionaCat.setName ("Twinkle");
+        owner2.getPets ().add(fionaCat);
 
         ownerService.save (owner2);
 
         Owner owner3 = new Owner ();
         owner3.setFirstName ("Angela");
         owner3.setLastName ("Shepherd");
+        owner3.setAddress ("88 Westfield Road");
+        owner3.setCity ("Barton Upon Humber");
+        owner3.setTelephone ("+44 01652 635727");
+        Pet angelaTiger = new Pet ();
+        angelaTiger.setPetType (savedTigerPetType);
+        angelaTiger.setOwner (owner3);
+        angelaTiger.setBirthDate (LocalDate.of (2018,10,19));
+        angelaTiger.setName ("Pussy");
+        owner3.getPets ().add(angelaTiger);
 
         ownerService.save (owner3);
 
