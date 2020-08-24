@@ -1,8 +1,10 @@
 package com.melvyn.sfgpetclinic.bootstrap;
 
 import com.melvyn.sfgpetclinic.model.Owner;
+import com.melvyn.sfgpetclinic.model.PetType;
 import com.melvyn.sfgpetclinic.model.Vet;
 import com.melvyn.sfgpetclinic.services.OwnerService;
+import com.melvyn.sfgpetclinic.services.PetTypeService;
 import com.melvyn.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,15 +22,32 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader (OwnerService ownerService, VetService vetService) {      // We need to generate the constructor
-                                                                                // Spring will do an auto @Autowired
-        this.ownerService = ownerService;   // Auto injected into the constructor
-        this.vetService = vetService;       // Auto injected into the constructor
+    public DataLoader (OwnerService ownerService,
+                       VetService vetService,
+                       PetTypeService petTypeService) {                        // We need to generate the constructor
+                                                                               // Spring will do an auto @Autowired
+        this.ownerService = ownerService;           // Auto injected into the constructor
+        this.vetService = vetService;               // Auto injected into the constructor
+        this.petTypeService = petTypeService;       // Auto injected into the constructor
     }
 
     @Override
     public void run (String... args) throws Exception {
+
+        PetType dog = new PetType ();
+        dog.setName ("Dog");
+        PetType savedDogPetType = petTypeService.save (dog);
+
+        PetType cat = new PetType ();
+        cat.setName ("Cat");
+        PetType savedCatPetType = petTypeService.save (cat);
+
+        PetType tiger = new PetType ();
+        tiger.setName ("Tiger");
+        PetType savedTigerPetType = petTypeService.save (tiger);
+
         Owner owner1 = new Owner ();
         owner1.setFirstName ("Michael");
         owner1.setLastName ("Weston");
