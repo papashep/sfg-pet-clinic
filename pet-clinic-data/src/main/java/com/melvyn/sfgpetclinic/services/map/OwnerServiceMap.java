@@ -12,6 +12,13 @@ import java.util.Set;
 /**
  * Created by Melvyn on 16/Aug/2020
  */
+
+/*
+    Currently this is an implementation that provides a service using an Hashmap.
+    We are going to modify it so we can use an implementation using Spring Data JPA.
+    We are comparing using the hashmap persistence to using an SQL database and should be able to switch between the two
+    We will be using Spring to decide which get run at run time.
+ */
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
