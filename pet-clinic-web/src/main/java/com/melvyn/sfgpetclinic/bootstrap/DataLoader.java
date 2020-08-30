@@ -1,10 +1,7 @@
 package com.melvyn.sfgpetclinic.bootstrap;
 
 import com.melvyn.sfgpetclinic.model.*;
-import com.melvyn.sfgpetclinic.services.OwnerService;
-import com.melvyn.sfgpetclinic.services.PetTypeService;
-import com.melvyn.sfgpetclinic.services.SpecialtyService;
-import com.melvyn.sfgpetclinic.services.VetService;
+import com.melvyn.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -25,16 +22,19 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
     public DataLoader (OwnerService ownerService,
                        VetService vetService,
                        PetTypeService petTypeService,
-                       SpecialtyService specialtyService) {                    // We need to generate the constructor
-                                                                               // Spring will do an auto @Autowired
-        this.ownerService = ownerService;           // Auto injected into the constructor
-        this.vetService = vetService;               // Auto injected into the constructor
-        this.petTypeService = petTypeService;       // Auto injected into the constructor
-        this.specialtyService = specialtyService;   // Auto injected into the constructor
+                       SpecialtyService specialtyService,
+                       VisitService visitService) {                 // We need to generate the constructor
+                                                                    // Spring will do an auto @Autowired
+        this.ownerService = ownerService;                           // Auto injected into the constructor
+        this.vetService = vetService;                               // Auto injected into the constructor
+        this.petTypeService = petTypeService;                       // Auto injected into the constructor
+        this.specialtyService = specialtyService;                   // Auto injected into the constructor
+        this.visitService = visitService;                           // Auto injected into the constructor
     }
 
     @Override
@@ -102,11 +102,19 @@ public class DataLoader implements CommandLineRunner {
         Pet fionaCat = new Pet ();
         fionaCat.setPetType (savedCatPetType);
         fionaCat.setOwner (owner2);
-        fionaCat.setBirthDate (LocalDate.of (2015,4,16));
+//        fionaCat.setBirthDate (LocalDate.of (2015,4,16));
+        fionaCat.setBirthDate (LocalDate.now ());
         fionaCat.setName ("Twinkle");
         owner2.getPets ().add(fionaCat);
 
         ownerService.save (owner2);
+
+        Visit catVisit = new Visit ();
+        catVisit.setPet (fionaCat);
+//        catVisit.setDate (LocalDate.of (2020,11,7));
+        catVisit.setDate (LocalDate.now ());
+        catVisit.setDescription ("Put cat down, I like dogs");
+        visitService.save (catVisit);
 
         Owner owner3 = new Owner ();
         owner3.setFirstName ("Angela");
@@ -117,11 +125,19 @@ public class DataLoader implements CommandLineRunner {
         Pet angelaTiger = new Pet ();
         angelaTiger.setPetType (savedTigerPetType);
         angelaTiger.setOwner (owner3);
-        angelaTiger.setBirthDate (LocalDate.of (2018,10,19));
+//        angelaTiger.setBirthDate (LocalDate.of (2018,10,19));
+        angelaTiger.setBirthDate (LocalDate.now ());
         angelaTiger.setName ("Pussy");
         owner3.getPets ().add(angelaTiger);
 
         ownerService.save (owner3);
+
+        Visit tigerVisit = new Visit ();
+        tigerVisit.setPet (angelaTiger);
+//        tigerVisit.setDate (LocalDate.of (2020,9,31));
+        tigerVisit.setDate (LocalDate.now ());
+        tigerVisit.setDescription ("Cut claws");
+        visitService.save (tigerVisit);
 
         System.out.println ("Loaded Owners....");
 

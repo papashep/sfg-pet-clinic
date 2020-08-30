@@ -2,12 +2,14 @@ package com.melvyn.sfgpetclinic.services.map;
 
 import com.melvyn.sfgpetclinic.model.Visit;
 import com.melvyn.sfgpetclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * Created by Melvyn on 30/Aug/2020
  */
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

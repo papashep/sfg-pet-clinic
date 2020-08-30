@@ -1,6 +1,6 @@
 package com.melvyn.sfgpetclinic;
 
-import org.junit.jupiter.api.Test;
+
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -9,8 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class SfgPetClinicApplicationTest {
 
-    @Test
-//    void main () {
+//    @Test void main () {
     void contextLoads () {
     }
 }
