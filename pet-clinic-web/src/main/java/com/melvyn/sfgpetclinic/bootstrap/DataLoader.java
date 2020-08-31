@@ -87,7 +87,8 @@ public class DataLoader implements CommandLineRunner {
         Pet mikesPet = new Pet ();
         mikesPet.setPetType (savedDogPetType);
         mikesPet.setOwner (owner1);
-        mikesPet.setBirthDate (LocalDate.now ());
+        mikesPet.setBirthDate (LocalDate.of (2019,12,25));
+//        mikesPet.setBirthDate (LocalDate.now ());
         mikesPet.setName ("Rosco");
         owner1.getPets ().add(mikesPet);
 
@@ -102,8 +103,8 @@ public class DataLoader implements CommandLineRunner {
         Pet fionaCat = new Pet ();
         fionaCat.setPetType (savedCatPetType);
         fionaCat.setOwner (owner2);
-//        fionaCat.setBirthDate (LocalDate.of (2015,4,16));
-        fionaCat.setBirthDate (LocalDate.now ());
+//        fionaCat.setBirthDate (LocalDate.now ());
+        fionaCat.setBirthDate (LocalDate.of (2015,4,16));
         fionaCat.setName ("Twinkle");
         owner2.getPets ().add(fionaCat);
 
@@ -111,8 +112,8 @@ public class DataLoader implements CommandLineRunner {
 
         Visit catVisit = new Visit ();
         catVisit.setPet (fionaCat);
-//        catVisit.setDate (LocalDate.of (2020,11,7));
-        catVisit.setDate (LocalDate.now ());
+        catVisit.setDate (LocalDate.of (2020,11,7));
+//        catVisit.setDate (LocalDate.now ());
         catVisit.setDescription ("Put cat down, I like dogs");
         visitService.save (catVisit);
 
@@ -125,8 +126,8 @@ public class DataLoader implements CommandLineRunner {
         Pet angelaTiger = new Pet ();
         angelaTiger.setPetType (savedTigerPetType);
         angelaTiger.setOwner (owner3);
-//        angelaTiger.setBirthDate (LocalDate.of (2018,10,19));
-        angelaTiger.setBirthDate (LocalDate.now ());
+        angelaTiger.setBirthDate (LocalDate.of (2018,10,19));
+//        angelaTiger.setBirthDate (LocalDate.now ());
         angelaTiger.setName ("Pussy");
         owner3.getPets ().add(angelaTiger);
 
@@ -134,8 +135,8 @@ public class DataLoader implements CommandLineRunner {
 
         Visit tigerVisit = new Visit ();
         tigerVisit.setPet (angelaTiger);
-//        tigerVisit.setDate (LocalDate.of (2020,9,31));
-        tigerVisit.setDate (LocalDate.now ());
+        tigerVisit.setDate (LocalDate.of (2020,9,30));
+//        tigerVisit.setDate (LocalDate.now ());
         tigerVisit.setDescription ("Cut claws");
         visitService.save (tigerVisit);
 
